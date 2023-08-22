@@ -1,0 +1,12 @@
+<form [formGroup]="empForm" (ngSubmit)="onFormSubmit()">
+    <div mat-dialog-content class="content">
+        <mat-form-field appearance="outline" style=" margin: 10px;">
+            <mat-label style="color: #3f51b5;">Enter New Password</mat-label>
+            <input matInput type="text" placeholder="*****" formControlName="password">
+        </mat-form-field>
+    </div>
+    <div mat-dialog-actions class="action">
+        <button mat-raised-button type="button" [mat-dialog-close]="false">Cancel</button>
+        <button mat-raised-button color="primary" type="submit">{{'Update'}}</button>
+    </div>
+</form>

@@ -1,0 +1,40 @@
+<mat-card class="bg">
+    <mat-card-header>
+      <mat-card-title class="title">LOGIN</mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+      <form  (ngSubmit)="login()">
+        <table  cellspacing="0">
+          <tr>
+            <td>
+              <mat-form-field style="width: 250px;" >
+              <input matInput placeholder="Service No" [(ngModel)]="id" name="id" required>
+              </mat-form-field>
+            </td>
+          </tr>
+          <tr>
+          <td><mat-form-field style="width: 250px;">
+            <input matInput placeholder="Password" [(ngModel)]="password"type="password" name="password" required>
+          </mat-form-field></td>
+        </tr>
+        <tr>
+            <td>
+                <mat-form-field style="width: 250px;">
+                <mat-label>Login Type</mat-label>
+                    <mat-select [(ngModel)]="loginType" name="loginType" required>
+                        <mat-option *ngFor="let type of types" [value]="type.value">
+                            {{type.viewValue}}
+                        </mat-option>
+                    </mat-select>
+                </mat-form-field>
+            </td>
+        </tr>
+    </table>
+        
+      </form>
+    </mat-card-content>
+
+    <mat-card-actions>
+      <button mat-raised-button (click)="login()" color="primary">Login</button>
+    </mat-card-actions>
+  </mat-card>

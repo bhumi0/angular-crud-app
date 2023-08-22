@@ -1,0 +1,13 @@
+<form [formGroup]="empForm" (ngSubmit)="onFormSubmit()">
+    <div mat-dialog-content class="content">
+
+        <div style="padding-left: 8px;" class="row"> 
+            <b>{{display}}</b>
+        </div>
+
+    </div>
+    <div mat-dialog-actions class="action">
+        <button mat-raised-button type="button" [mat-dialog-close]="false">Cancel</button>
+        <button mat-raised-button color="primary" type="submit">{{'Update'}}</button>
+    </div>
+</form>

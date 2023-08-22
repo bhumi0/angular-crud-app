@@ -1,0 +1,49 @@
+<div mat-dialog-title>
+    <h1 style="color: #3f51b5;">Agniveer Form</h1>
+</div>
+<form [formGroup]="empForm" (ngSubmit)="onFormSubmit()">
+    <div mat-dialog-content class="content">
+        <div class="row">
+            <mat-form-field appearance="outline">
+                <mat-label>Service No</mat-label>
+                <input matInput type="number" placeholder="Ex. 12345" formControlName="id">
+            </mat-form-field>
+            <mat-form-field appearance="outline">
+                <mat-label>Name</mat-label>
+                <input matInput placeholder="Ex. Babaji" formControlName="name">
+            </mat-form-field>
+        </div>
+
+        <div class="row">
+            <mat-form-field appearance="outline">
+                <mat-label>Trade</mat-label>
+                <input matInput type="text" placeholder="Ex. elect" formControlName="trade">
+            </mat-form-field>
+            <mat-form-field appearance="outline">
+                <mat-label>Posting in Date</mat-label>
+                <input matInput [matDatepicker]="picker" formControlName="postIn">
+                <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+                <mat-datepicker #picker></mat-datepicker>
+            </mat-form-field>
+            <!-- <mat-form-field appearance="outline">
+                <mat-label>Unit</mat-label>
+                <input matInput type="text" placeholder="Ex. 7TS" formControlName="unit">
+            </mat-form-field> -->
+        </div>
+        <div class="row">
+            <mat-form-field appearance="fill">
+                <mat-label>Image</mat-label>
+                <mat-select placeholder="Select Image" [(ngModel)]="imgUrl" formControlName="imgUrl" required>
+                    <mat-option *ngFor="let img of imgUrls" [value]="img.image">
+                        <img width="20" height="20" [src]="img.image">
+                        {{img.value}}
+                    </mat-option>
+                </mat-select>
+            </mat-form-field>
+        </div>
+    </div>
+    <div mat-dialog-actions class="action">
+        <button mat-raised-button type="button" [mat-dialog-close]="false">Cancel</button>
+        <button mat-raised-button color="primary" type="submit">Save</button>
+    </div>
+</form>

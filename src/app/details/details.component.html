@@ -1,0 +1,31 @@
+<mat-toolbar>
+    <span><b>Bookout Details</b></span>
+  </mat-toolbar>
+<table mat-table [dataSource]="tableDataSource">
+
+    <ng-container matColumnDef="bookoutDate">
+      <th mat-header-cell *matHeaderCellDef> <b>Bookout Date</b> </th>
+      <td mat-cell *matCellDef="let element" > {{element.bookoutDate | date:'dd MMM YY'}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="bookoutTime">
+        <th mat-header-cell *matHeaderCellDef> <b>Time Out</b> </th>
+        <td mat-cell *matCellDef="let element" > {{element.bookoutDate | date:'hh:mm'}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="bookinDate">
+        <th mat-header-cell *matHeaderCellDef> <b>Bookin Date</b></th>
+        <td mat-cell *matCellDef="let element" > {{element.bookinDate | date:'dd MMM YY'}} </td>
+      </ng-container>
+  
+    <ng-container matColumnDef="bookinTime">
+        <th mat-header-cell *matHeaderCellDef><b> Time In </b></th>
+        <td mat-cell *matCellDef="let element" > {{element.bookinDate | date:'hh:mm'}} </td>
+    </ng-container>
+  
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+  </table>
+  <div mat-dialog-actions class="action">
+    <button mat-raised-button type="button" [mat-dialog-close]="false">Close</button>
+</div>

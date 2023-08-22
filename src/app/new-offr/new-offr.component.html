@@ -1,0 +1,66 @@
+<div mat-dialog-title>
+    <h1 style="color: #3f51b5;">New Officer Entry Form</h1>
+</div>
+<form [formGroup]="empForm" (ngSubmit)="onFormSubmit()">
+    <div mat-dialog-content class="content">
+        <div class="row">
+            <mat-form-field appearance="outline" style=" margin: 10px;">
+                <mat-label>Service No</mat-label>
+                <input matInput type="number" placeholder="Ex. 12345" formControlName="id" required>
+            </mat-form-field>
+            <mat-form-field appearance="outline" style=" margin: 10px;">
+                <mat-label>Name</mat-label>
+                <input matInput placeholder="Ex. Babaji" formControlName="name" required>
+            </mat-form-field>
+        </div>
+
+        <div class="row">
+            <mat-form-field appearance="outline" style="width: 250px; margin: 10px;">
+            <mat-label>Login Type</mat-label>
+            <mat-select [(ngModel)]="type" formControlName="type" required>
+                <mat-option *ngFor="let type of types" [value]="type.value">
+                    {{type.viewValue}}
+                </mat-option>
+            </mat-select>
+            </mat-form-field>
+                
+            <mat-form-field appearance="outline" style="width: 250px; margin: 10px;">
+            <mat-label>Unit</mat-label>
+            <mat-select formControlName="unit" required>
+                <mat-option *ngFor="let un of unit" [value]="un">{{un}}
+                </mat-option>
+            </mat-select>
+            
+            </mat-form-field>
+        </div>
+
+        <div class="row">
+            <mat-form-field appearance="outline" style="width: 250px; margin: 10px;">
+                <mat-label>Branch</mat-label>
+                <mat-select formControlName="branch" required>
+                    <mat-option *ngFor="let bn of branch" [value]="bn">{{bn}}
+                    </mat-option>
+                </mat-select>
+            </mat-form-field>
+            <mat-form-field appearance="outline" style=" margin: 10px;">
+                <mat-label>Password</mat-label>
+                <input matInput type="text" placeholder="*****" formControlName="password" required>
+            </mat-form-field>
+        </div>
+        <div class="row">
+            <mat-form-field appearance="fill">
+                <mat-label>Image</mat-label>
+                <mat-select placeholder="Select Image" [(ngModel)]="imgUrl" formControlName="imgUrl" required>
+                    <mat-option *ngFor="let img of imgUrls" [value]="img.image">
+                        <img width="20" height="20" [src]="img.image">
+                        {{img.value}}
+                    </mat-option>
+                </mat-select>
+            </mat-form-field>
+        </div>
+    </div>
+    <div mat-dialog-actions class="action">
+        <button mat-raised-button type="button" [mat-dialog-close]="false">Cancel</button>
+        <button mat-raised-button color="primary" type="submit" (click)="onFormSubmit()">Save</button>
+    </div>
+</form>
